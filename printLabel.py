@@ -249,7 +249,7 @@ def printing():
     def insertdata():
 
         datacheck()
-        # duplicatesprintLog()
+        duplicatesprintLog()
         status.set("Printed")
         selnumber()
         displaydata.insert('', END,
