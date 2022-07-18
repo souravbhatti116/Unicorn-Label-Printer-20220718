@@ -292,35 +292,68 @@ def printing():
         wb.close()
 
     def printlabel():
-
+        
+        qrcodeType = qrcode.get()
         myPrinter = 'DYMO LabelWriter 450 Turbo'
         
-        url = "http://vmprdate.eastus.cloudapp.azure.com:9000/api/v1/manifest/?qrcode=" + qrcode.get()
-        r = requests.get(url)
-        rawjson = json.loads(r.text)
-        data = rawjson['data']
-        imei = data[0]['IMEInumber']  
+        if qrcodeType[:2] == "14":
 
-        qr_value = qrcode.get()
-        qr_text = qrcode.get()
-        barcode_value = number.get()
-        text_value = name.get()
-        qr_path = pathlib.Path('./US Green Wallplug Template with IMEI.label')
+            url = "http://vmprdate.eastus.cloudapp.azure.com:9000/api/v1/manifest/?qrcode=" + qrcode.get()
+            r = requests.get(url)
+            rawjson = json.loads(r.text)
+            data = rawjson['data']
+            imei = data[0]['IMEInumber']  
 
-        printer_con = Dispatch('Dymo.DymoAddIn')
-        printer_con.SelectPrinter(myPrinter)
-        printer_con.Open(qr_path)
-        printer_label = Dispatch('Dymo.DymoLabels')
-        printer_label.SetField("BARCODE_1", qr_value)
-        printer_label.SetField("TEXT_1", qr_text)
-        printer_label.SetField("BARCODE", barcode_value)
-        printer_label.SetField("TEXT", text_value)
-        printer_label.SetField("BARCODE_2", imei)
-        printer_con.setGraphicsAndBarcodePrintMode(OFF)
+            qr_value = qrcode.get()
+            qr_text = qrcode.get()
+            barcode_value = number.get()
+            text_value = name.get()
+            qr_path = pathlib.Path('./US Green Wallplug Template with IMEI.label')
 
-        printer_con.StartPrintJob()
-        printer_con.Print(1, False)
-        printer_con.EndPrintJob()
+            printer_con = Dispatch('Dymo.DymoAddIn')
+            printer_con.SelectPrinter(myPrinter)
+            printer_con.Open(qr_path)
+            printer_label = Dispatch('Dymo.DymoLabels')
+            printer_label.SetField("BARCODE_1", qr_value)
+            printer_label.SetField("TEXT_1", qr_text)
+            printer_label.SetField("BARCODE", barcode_value)
+            printer_label.SetField("TEXT", text_value)
+            printer_label.SetField("BARCODE_2", imei)
+            printer_con.setGraphicsAndBarcodePrintMode(OFF)
+
+            printer_con.StartPrintJob()
+            printer_con.Print(1, False)
+            printer_con.EndPrintJob()
+
+        else:
+
+
+            # url = "http://vmprdate.eastus.cloudapp.azure.com:9000/api/v1/manifest/?qrcode=" + qrcode.get()
+            # r = requests.get(url)
+            # rawjson = json.loads(r.text)
+            # data = rawjson['data']
+            # imei = data[0]['IMEInumber']  
+
+            qr_value = qrcode.get()
+            qr_text = qrcode.get()
+            barcode_value = number.get()
+            text_value = name.get()
+            qr_path = pathlib.Path('./US Green Wallplug Template.label')
+
+            printer_con = Dispatch('Dymo.DymoAddIn')
+            printer_con.SelectPrinter(myPrinter)
+            printer_con.Open(qr_path)
+            printer_label = Dispatch('Dymo.DymoLabels')
+            printer_label.SetField("BARCODE_1", qr_value)
+            printer_label.SetField("TEXT_1", qr_text)
+            printer_label.SetField("BARCODE", barcode_value)
+            printer_label.SetField("TEXT", text_value)
+            # printer_label.SetField("BARCODE_2", imei)
+            printer_con.setGraphicsAndBarcodePrintMode(OFF)
+
+            printer_con.StartPrintJob()
+            printer_con.Print(1, False)
+            printer_con.EndPrintJob()
 
     def switchwindow():
         root.destroy()
