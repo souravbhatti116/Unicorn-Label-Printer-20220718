@@ -33,7 +33,7 @@ dic_names = ["Black Plug Gateway, Ext Ant, CAN, Type A",
              "Green Wallplug, CAN, Type B",
              "Green Wallplug, EU, Type E",
              "Green Wallplug, EU, Type G",
-             "Black Plug Gateway, Ext Ant, AIM, Type A",
+             "Black Plug Gateway, Ext Ant, ASIA, Type A",
             "Black Plug Gateway, Ext Ant, IND, Type C",
             "Black Plug Gateway, Ext Ant, HK, Type G",
             "Black Plug Gateway, Ext Ant, NZ, Type I",
@@ -41,7 +41,7 @@ dic_names = ["Black Plug Gateway, Ext Ant, CAN, Type A",
             "Black Plug Gateway, Ext Ant, SG, Type C",
             "Black Plug Gateway, Ext Ant, KOR, Type C",
             "Black Plug Gateway, Ext Ant, MEX, Type C",
-            "Green Wallplug, AIM, Type B",
+            "Green Wallplug, ASIA, Type B",
             "Green Wallplug, IND, Type E",
             "Green Wallplug, HK, Type G",
             "Green Wallplug NZ, Type I",
@@ -180,7 +180,7 @@ def printing():
             number.set("PGW-2003-EUE")
         if name.get() == "Green Wallplug, EU, Type G":
             number.set("PGW-2003-EUG")
-        if name.get() == "Black Plug Gateway, Ext Ant, AIM, Type A":
+        if name.get() == "Black Plug Gateway, Ext Ant, ASIA, Type A":
             number.set("GBP-2002-UA96-X")
         if name.get() == "Black Plug Gateway, Ext Ant, IND, Type C":
             number.set("GBP-2002-EC80-X")
@@ -196,7 +196,7 @@ def printing():
             number.set("GBP-2002-UC94-X")
         if name.get() == "Black Plug Gateway, Ext Ant, MEX, Type C":   
             number.set("GBP-2002-UC93-X")
-        if name.get() == "Green Wallplug, AIM, Type B":
+        if name.get() == "Green Wallplug, ASIA, Type B":
             number.set("PGW-2003-UA96-I")
         if name.get() == "Green Wallplug, IND, Type E":
             number.set("PGW-2003-EE80-I")
